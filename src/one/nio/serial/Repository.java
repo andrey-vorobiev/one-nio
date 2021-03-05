@@ -20,9 +20,8 @@ import one.nio.gen.BytecodeGenerator;
 import one.nio.mgt.Management;
 import one.nio.util.Base64;
 import one.nio.util.JavaInternals;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -39,7 +38,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static java.nio.file.StandardOpenOption.*;
 
 public class Repository {
-    public static final Log log = LogFactory.getLog(Repository.class);
+    public static final Logger log = LoggerFactory.getLogger(Repository.class);
 
     static final byte[][] classLocks = new byte[64][0];
     static final ConcurrentHashMap<Class, Serializer> classMap = new ConcurrentHashMap<>(128);

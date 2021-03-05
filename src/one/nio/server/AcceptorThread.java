@@ -19,14 +19,13 @@ package one.nio.server;
 import one.nio.net.Session;
 import one.nio.net.Socket;
 import one.nio.net.SslContext;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 final class AcceptorThread extends Thread {
-    private static final Log log = LogFactory.getLog(AcceptorThread.class);
+    private static final Logger log = LoggerFactory.getLogger(AcceptorThread.class);
 
     final String address;
     final int port;
