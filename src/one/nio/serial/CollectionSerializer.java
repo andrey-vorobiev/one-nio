@@ -137,8 +137,9 @@ public class CollectionSerializer extends Serializer<Collection> {
         }
 
         generateUid();
-        Repository.log.warn("[" + Long.toHexString(uid) + "] No default constructor for " + descriptor +
-                ", changed type to " + implementation.getName());
+        if (Repository.log.isDebugEnabled()) {
+            Repository.log.debug("[{}] No default constructor for {}, changed type to {}", Long.toHexString(uid), descriptor, implementation.getName());
+        }
 
         try {
             return MethodHandles.publicLookup()
